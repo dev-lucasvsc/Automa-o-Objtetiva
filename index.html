@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente de Automação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Assistente de Automação</h1>
+            <p>Preencha os campos e selecione a ação desejada.</p>
+        </div>
+
+        <fieldset class="control-group">
+            <legend>1. Período</legend>
+            <div class="date-inputs">
+                <div class="input-group">
+                    <label for="data-inicio">Data de Início:</label>
+                    <input type="date" id="data-inicio" name="data-inicio">
+                </div>
+                <div class="input-group">
+                    <label for="data-fim">Data de Fim:</label>
+                    <input type="date" id="data-fim" name="data-fim">
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="control-group" id="fornecedor-fieldset">
+            <legend>2. Filtro de Fornecedores</legend>
+            
+            <div class="search-group">
+                <div class="input-group">
+                    <label for="fornecedor-search">Buscar por Nome:</label>
+                    <input type="text" id="fornecedor-search" placeholder="Digite 2+ letras para buscar...">
+                </div>
+                <button id="btn-fornecedor-search" class="btn-secondary">Buscar</button>
+            </div>
+
+            <label>Resultados da Busca:</label>
+            <div id="fornecedor-results" class="results-box">
+                <small>A busca aparecerá aqui. Marque os que deseja usar.</small>
+            </div>
+            
+            <div class="input-group">
+                <label for="fornecedor-input">Códigos Selecionados (separados por vírgula):</label>
+                <input type="text" id="fornecedor-input" placeholder="Ex: 1001, 1002, ...">
+            </div>
+            <button id="btn-fornecedor-submit" class="btn-secondary">Inserir Fornecedores</button>
+        </fieldset>
+        
+        <fieldset class="control-group" id="nf-section">
+            <legend>3. Filtro de Notas Fiscais</legend>
+            <div class="input-group">
+                <label for="nf-input">Números das NFs (separados por vírgula):</label>
+                <input type="text" id="nf-input" placeholder="Ex: 1234, 1235, ...">
+            </div>
+            <button id="btn-nf-submit" class="btn-secondary">Inserir NFs</button>
+        </fieldset>
+        
+        <fieldset class="control-group">
+            <legend>4. Ações de Automação</legend>
+            <div class="button-container">
+                <button id="btn-start" class="btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon"><path d="M7 6V4C7 2.89543 7.89543 2 9 2H15C16.1046 2 17 2.89543 17 4V6H19C20.1046 6 21 6.89543 21 8V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V8C3 6.89543 3.89543 6 5 6H7ZM9 4V6H15V4H9Z"></path></svg>
+                    <span>INICIAR FILTROS (Datas + CFOPs)</span>
+                </button>
+                
+                </div>
+        </fieldset>
+        
+        <div class="footer-controls">
+            <button id="btn-encerrar" class="btn-danger">Encerrar Assistente</button>
+        </div>
+    </div>
+
+    <div id="modal" class="modal-container">
+        <div class="modal-content">
+            <h3 id="modalTitle"></h3>
+            <p id="modalMessage"></p>
+            <button id="modalCloseButton">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
